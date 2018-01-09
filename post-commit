@@ -21,4 +21,4 @@ fi
 
 # Write a full path to where you put the post_commit_hook.py so it is executed
 # the $tweet is the command line argument that will go into the python script
-python ~/Desktop/Code/AltCryptoResearch/.git/hooks/post_commit_hook.py $tweet
+python ~/Desktop/Code/MyCodeRepository/.git/hooks/post_commit_hook.py $tweet
