@@ -20,7 +20,9 @@ def main():
     "access_token_secret" : "YOUR VALUE" 
     }
 
-  tweet_str = sys.argv[1]
+  tweet = ""
+  for arg in sys.argv[1:]:
+    tweet += " " + arg 
 
   api = get_api(cfg)
   status = api.update_status(status=tweet_str) 
