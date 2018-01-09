@@ -1,0 +1,24 @@
+#!/bin/sh
+
+
+# PATH to the repository of interest
+export PATH=$PATH:~/Desktop/Code/MyCodeRepository/.git/hooks
+
+toplevel_path=`git rev-parse --show-toplevel`
+toplevel_dir=`basename "$toplevel_path"`
+
+branch=`git rev-parse --abbrev-ref HEAD`
+subject=`git log --pretty=format:%s -n1`
+hashtags="#code #$toplevel_dir"
+tweet=$hashtags' ['$branch']: "'$subject'"'
+
+# truncate tweets that are longer than 280 characters
+if [ ${#tweet} -gt 280 ]
+    then
+        tweet_trunc=$(echo $tweet | cut -c1-137)
+        tweet=${tweet_trunc}...
+fi
+
+# Write a full path to where you put the post_commit_hook.py so it is executed
+# the $tweet is the command line argument that will go into the python script
+python ~/Desktop/Code/AltCryptoResearch/.git/hooks/post_commit_hook.py $tweet
