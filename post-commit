@@ -16,13 +16,13 @@ hashtags="#code #$toplevel_dir"
 #the tweet itself is thee hashtags plus the branch name plus the commit message
 tweet=$hashtags' ['$branch']: "'$subject'"'
 
-# truncate tweets that are longer than 280 characters
-if [ ${#tweet} -gt 280 ]
+# truncate tweets that are longer than 140 characters
+if [ ${#tweet} -gt 140 ]
     then
         tweet_trunc=$(echo $tweet | cut -c1-137)
         tweet=${tweet_trunc}...
 fi
-
+echo $tweet
 # Write a full path to where you put the post_commit_hook.py so it is executed
 # the $tweet variable is the command line argument that will be passed to the python script
 python ~/Desktop/Code/MyCodeRepository/.git/hooks/post_commit_hook.py $tweet
