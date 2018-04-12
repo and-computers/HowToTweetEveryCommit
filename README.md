@@ -12,6 +12,20 @@ changed to do the actual twitter post in python using `Tweepy` because the oauth
 ![get_dev_tokens](http://g.recordit.co/VlZUSa77T2.gif)
 https://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/
 
+1a. Paste the 4 keys into the `post_commit_hook.py` in the section below.
+
+```python
+def main():
+  # Get these values from https://apps.twitter.com/
+  # See more detailed instructions in the README.md
+  cfg = { 
+    "consumer_key"        : "YOUR VALUE",
+    "consumer_secret"     : "YOUR VALUE",
+    "access_token"        : "YOUR VALUE",
+    "access_token_secret" : "YOUR VALUE" 
+    }
+```
+
 
 
 
