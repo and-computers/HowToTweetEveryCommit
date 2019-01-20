@@ -53,7 +53,8 @@ Line 28: python ~/Desktop/Code/MyCodeRepository/.git/hooks/post_commit_hook.py $
 
 ## ToDo
 
-automate manual steps of moving commits and editing files with a bash script
+- automate manual steps of moving commits and editing files with a bash script
+- automate the removal of the post commit hook, to turn off tweeting 
 
 
 ## Contributing
