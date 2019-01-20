@@ -29,3 +29,7 @@ Line 5: export PATH=$PATH:~/Desktop/Code/MyCodeRepository/.git/hooks
 
 Line 28: python ~/Desktop/Code/MyCodeRepository/.git/hooks/post_commit_hook.py $tweet
 ```
+
+## ToDo
+
+automate manual steps of moving commits and editing files with a bash script
