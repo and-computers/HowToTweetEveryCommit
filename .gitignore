@@ -1,0 +1,4 @@
+**.DS_Store
+*.py[cod]
+*_autogen*
+post-commit
