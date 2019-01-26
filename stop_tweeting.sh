@@ -11,5 +11,9 @@ REPOSITORY_PATH="${REPOSITORY_PATH/#\~/$HOME}"
 
 # the line that needs to be commented out to stop tweeting
 TWEETING_LINE="status = api.update_status(status=tweet_str)"
-echo "commenting out the line that does the tweeting"
+
+echo "Commenting out the line that does the tweeting.."
+
 sed -i -e "s|${TWEETING_LINE}|#${TWEETING_LINE}|g" "${REPOSITORY_PATH}.git/hooks/post_commit_hook_autogen.py"
+
+echo "Successfully removed automatic commit tweeting from ${REPOSITORY_PATH}"

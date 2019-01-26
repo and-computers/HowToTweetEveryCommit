@@ -14,7 +14,7 @@ changed to do the actual twitter post in python using `Tweepy` because the oauth
 ![get_dev_tokens](http://g.recordit.co/VlZUSa77T2.gif)
 https://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/
 
-2. Run `bash main.sh` to execute the script
+2. Run `bash start_tweeting.sh` to execute the script
 
 3. Supply the information when prompted.
 	- The path to the repository you want to tweet commits for
@@ -36,7 +36,21 @@ https://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/
 
 - Look for 2 files named `post-commit` and `post_commit_hook_autogen.py` in the repository's git hooks directory: `your_repo/.git/hooks/` 
 
-- Open the `post_commit_hook_autogen.py` file and verify that the Twitter API credentials you supplied are present in the config dictionary
+- Open the `post_commit_hook_autogen.py` file and verify that the Twitter API credentials you supplied are present in the config dictionary.
+
+```python
+def main():
+  """
+  Get these values from https://apps.twitter.com/
+  See more detailed instructions in the README.md
+  """
+  cfg = { 
+    "consumer_key"        : "some-random-str-thing",
+    "consumer_secret"     : "and-another-one-but-secretive",
+    "access_token"        : "a-long-string-too",
+    "access_token_secret" : "a-secretive-long-string" 
+    }
+```
 
 --------------------------------------------------------------------------
 
