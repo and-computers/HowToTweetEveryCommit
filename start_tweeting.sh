@@ -2,10 +2,6 @@
 
 # This is a program that sets up a repository for tweeting commits!
 
-
-
-
-
 echo -n "Enter the Path/to/your/repository (autocomplete enabled & must end in slash) and press [ENTER]: "
 read -e REPOSITORY_PATH
 
@@ -44,7 +40,6 @@ echo "Specifying repository path in post commit hook"
 cp post-commit_template post-commit
 
 sed -i -e "s|{{MY_REPO_PATH}}|${REPOSITORY_PATH}|g" post-commit
-
 
 echo "Moving python script and post commit bash to repository"
 
