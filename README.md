@@ -40,7 +40,6 @@ https://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/
 
 --------------------------------------------------------------------------
 
-
 ## When You Get Tired or Your Follower Count Goes Down to 0
 
 Run the following command:
@@ -50,7 +49,6 @@ Run the following command:
 Supply the path to the repository that you had previously tweeted from.
 
 --------------------------------------------------------------------------
-
 
 ## Contributing
 
