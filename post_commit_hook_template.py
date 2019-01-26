@@ -27,7 +27,7 @@ def main():
         tweet += " " + arg
 
     api = get_api(cfg)
-    status = api.update_status(status=tweet_str)
+    status = api.update_status(status=tweet)
 
 if __name__ == "__main__":
     main()
