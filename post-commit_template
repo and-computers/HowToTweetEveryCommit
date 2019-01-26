@@ -16,10 +16,10 @@ hashtags="Repository: #$toplevel_dir"
 #the tweet itself is thee hashtags plus the branch name plus the commit message
 tweet=$hashtags' ['$branch']: "'$subject'"'
 
-# truncate tweets that are longer than 140 characters
-if [ ${#tweet} -gt 140 ]
+# truncate tweets that are longer than 280 characters
+if [ ${#tweet} -gt 280 ]
     then
-        tweet_trunc=$(echo $tweet | cut -c1-137)
+        tweet_trunc=$(echo $tweet | cut -c1-277)
         tweet=${tweet_trunc}...
 fi
 echo $tweet
