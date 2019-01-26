@@ -5,55 +5,51 @@ adapted from: https://gist.github.com/kylefrost/f3841e76749dc64f4b5e
 
 changed to do the actual twitter post in python using `Tweepy` because the oauth-sign and http-post install from tar.gz was giving me problems and python is just easier. hopefully this makes it a bit more usable for someone else. enjoy!
 
+--------------------------------------------------------------------------
 
+## Get To Tweeting
 
 1. Get your developer tokens from https://apps.twitter.com/ and make sure your permissions are set to "Read and Write"
 
 ![get_dev_tokens](http://g.recordit.co/VlZUSa77T2.gif)
 https://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/
 
-1a. Paste the 4 keys into the `post_commit_hook.py` in the section below.
+2. Run `bash main.sh` to execute the script
 
-```python
-def main():
-  # Get these values from https://apps.twitter.com/
-  # See more detailed instructions in the README.md
-  cfg = { 
-    "consumer_key"        : "YOUR VALUE",
-    "consumer_secret"     : "YOUR VALUE",
-    "access_token"        : "YOUR VALUE",
-    "access_token_secret" : "YOUR VALUE" 
-    }
-```
+3. Supply the information when prompted.
+	- The path to the repository you want to tweet commits for
+	- The twitter api consumer key
+	- The twitter api consumer secret
+	- The twitter api access token
+	- The twitter api access token secret
 
+4. Install dependency (its just `tweepy`), run `pip install -r requirements.txt`
+
+--------------------------------------------------------------------------
 
 
+## Verify it Worked
 
-2. Install dependency (its just `tweepy`), run `pip install -r requirements.txt`
-
-3. Go to the local repository that you want to have commits tweeted from and find the `.git` folder. Note that most operating systems have folders that start with "." hidden. To unhide folders on Mac OSX press `Command+Shift+.`
+- Go to the local repository that you selected to tweet from and find the `.git` folder. Note that most operating systems have folders that start with "." hidden. To unhide folders on Mac OSX press `Command+Shift+.`
 
 ![unhide_hidden_folders](http://g.recordit.co/vgQZDrphXW.gif)
 
-4. Place the 2 files `post-commit` and `post_commit_hook.py` from this repository into the `your_repo/.git/hooks/` directory
+- Look for 2 files named `post-commit` and `post_commit_hook_autogen.py` in the repository's git hooks directory: `your_repo/.git/hooks/` 
 
-5. Make the `post-commit` file executable by running `chmod a+x post-commit` from within `your_repo/.git/hooks/` directory
+- Open the `post_commit_hook_autogen.py` file and verify that the Twitter API credentials you supplied are present in the config dictionary
+
+--------------------------------------------------------------------------
 
 
-![make_executable_gif](http://g.recordit.co/dnz5eR4t6V.gif)
+## When You Get Tired or Your Follower Count Goes Down to 0
 
+Run the following command:
 
-6. Edit lines 5 and 28 in `post-commit` file to point to your repository's local directory and repository's git/hooks directory respectively. See below for an example of what your edits might look like:
+`bash stop_tweeting.sh` 
 
-```
-Line 5: export PATH=$PATH:~/Desktop/Code/MyCodeRepository/.git/hooks
+Supply the path to the repository that you had previously tweeted from.
 
-Line 28: python ~/Desktop/Code/MyCodeRepository/.git/hooks/post_commit_hook.py $tweet
-```
-
-## ToDo
-
-automate manual steps of moving commits and editing files with a bash script
+--------------------------------------------------------------------------
 
 
 ## Contributing
@@ -75,4 +71,3 @@ https://www.paypal.me/hijodelsol
 **ETH: 0x2F2604AA943dB4E7257636793F38dD3B1808A9e7**
 
 **LTC: MQVgzNDgw43YzyUg3XmH3jQ7L8ndVswmN3**
->>>>>>> c2524ac76618b4acaff4d35c3f67a989b9dfb0b5
