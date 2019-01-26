@@ -2,7 +2,7 @@
 
 
 # PATH to the repository of interest
-export PATH=$PATH:~/Desktop/Code/MyCodeRepository/.git/hooks
+export PATH=$PATH:{{MY_REPO_PATH}}.git/hooks
 
 toplevel_path=`git rev-parse --show-toplevel`
 toplevel_dir=`basename "$toplevel_path"`
@@ -25,4 +25,4 @@ fi
 echo $tweet
 # Write a full path to where you put the post_commit_hook.py so it is executed
 # the $tweet variable is the command line argument that will be passed to the python script
-python ~/Desktop/Code/MyCodeRepository/.git/hooks/post_commit_hook_autogen.py $tweet
+python {{MY_REPO_PATH}}.git/hooks/post_commit_hook_autogen.py $tweet
