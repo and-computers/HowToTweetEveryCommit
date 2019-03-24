@@ -2,8 +2,12 @@
 
 # This is a program that sets up a repository for tweeting commits!
 
-echo -n "Enter the Path/to/your/repository (autocomplete enabled & must end in slash) and press [ENTER]: "
-read -e REPOSITORY_PATH
+
+twitter_consumer_key=$1
+twitter_consumer_secret=$2
+twitter_access_token=$3
+twitter_access_token_secret=$4
+REPOSITORY_PATH=$5
 
 # tilde expansion for the case when it exists 
 # https://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash
@@ -11,16 +15,8 @@ REPOSITORY_PATH="${REPOSITORY_PATH/#\~/$HOME}"
 
 echo "This script will tweet out your commits for "$REPOSITORY_PATH""
 
-echo -n "Enter your Twitter consumer key and press [ENTER]: "
-read twitter_consumer_key
-echo -n "Enter your Twitter consumer secret and press [ENTER]: "
-read twitter_consumer_secret
 
-echo -n "Enter your Twitter access token and press [ENTER]: "
-read twitter_access_token
 
-echo -n "Enter your Twitter access token secret and press [ENTER]: "
-read twitter_access_token_secret
 
 echo "Placing access keys & tokens in python script"
 
@@ -54,4 +50,4 @@ echo "Making post commit bash script executable"
 
 sudo chmod a+x "${REPOSITORY_PATH}.git/hooks/post-commit"
 
-echo "Every Tweet From "${REPOSITORY_PATH}" will now be tweeted out!"
+echo "Every Tweet From "${REPOSITORY_PATH}" will now be tweeted out!">&2
