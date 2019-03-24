@@ -14,16 +14,37 @@ changed to do the actual twitter post in python using `Tweepy` because the oauth
 ![get_dev_tokens](http://g.recordit.co/VlZUSa77T2.gif)
 https://www.slickremix.com/docs/how-to-get-api-keys-and-tokens-for-twitter/
 
-2. Run `bash start_tweeting.sh` to execute the script
 
-3. Supply the information when prompted.
-	- The path to the repository you want to tweet commits for
-	- The twitter api consumer key
-	- The twitter api consumer secret
-	- The twitter api access token
-	- The twitter api access token secret
+2. Fill out the `.profiles.ini` file with as many different twitter account keys as you would like.
 
-4. Install dependency (its just `tweepy`), run `pip install -r requirements.txt`
+```
+[default]
+CONSUMER_KEY=your_key
+CONSUMER_SECRET=my_secret_key
+ACCESS_TOKEN=my_token
+ACCESS_TOKEN_SECRET=my_secret_token
+
+[kevindurantactual]
+CONSUMER_KEY=your_key
+CONSUMER_SECRET=my_secret_key
+ACCESS_TOKEN=my_token
+ACCESS_TOKEN_SECRET=my_secret_token
+
+[kevindurantfanacct]
+CONSUMER_KEY=your_key
+CONSUMER_SECRET=my_secret_key
+ACCESS_TOKEN=my_token
+ACCESS_TOKEN_SECRET=my_secret_token
+```
+
+2. run `pip install -r requirements.txt` to install dependencies (its just `tweepy` and `configparser`), 
+
+3. Run `python start_tweeting.py default` to tweet from the account associated with the keys listed under `default` in `.profiles.ini`
+
+4. When prompted select the folder of the repository you are interested in tweeting out commits for.
+
+5. Watch as all your fake friends unfollow you.
+
 
 --------------------------------------------------------------------------
 
