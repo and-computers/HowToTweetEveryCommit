@@ -5,7 +5,10 @@ import subprocess
 import sys
 # from tkinter import filedialog
 from tkinter import Tk, filedialog
-# work on py2 and py3
+"""
+work on py2 and py3 by mapping
+input to raw_input
+"""
 try:
     input = raw_input
 except NameError:
@@ -13,8 +16,12 @@ except NameError:
 
 cfg = configparser.ConfigParser()
 cfg.read('.profiles.ini')
-
-whoami = sys.argv[1]
+# catch the no argument passed situation
+try:
+    whoami = sys.argv[1]
+except IndexError:
+    print("Using Default configuration")
+    whoami = "default"
 
 # parse lambda configuration parameters
 CONFIG_PARAMS = {}
