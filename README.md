@@ -97,7 +97,7 @@ Thanks in advance :blush:
 
 If ya feeling generous, hollr @ the kid :heart:
 
-https://www.paypal.me/hijodelsol
+https://patreon.com/andcomputers
 
 **BTC: 3EbMygEoo8gqgPHxmqa631ZVSwgWaoCj3m**
 
