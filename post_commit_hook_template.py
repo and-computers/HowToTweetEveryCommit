@@ -6,10 +6,13 @@ ADAPTED FROM: http://nodotcom.org/python-twitter-tutorial.html
 """
 
 
-def get_api(cfg):
-    auth = tweepy.OAuthHandler(cfg['consumer_key'], cfg['consumer_secret'])
-    auth.set_access_token(cfg['access_token'], cfg['access_token_secret'])
-    return tweepy.API(auth)
+def get_api_client(config_dict: dict) -> tweepy.Client:
+    """Get api client from tweepy for v2 api endpoints
+    Args:
+        config_dict (dict[str,str]): a dictionary with keys needed to auth
+        specifically consumer_key, consumer_secret, access_token, access_token_secret
+    """
+    return tweepy.Client(**config_dict)
 
 
 def main():
@@ -26,8 +29,8 @@ def main():
     for arg in sys.argv[1:]:
         tweet += " " + arg
 
-    api = get_api(cfg)
-    status = api.update_status(status=tweet)
+    twitter_client = get_api_client(config_dict=cfg)
+    status = twitter_client.create_tweet(text=tweet)
 
 if __name__ == "__main__":
     main()

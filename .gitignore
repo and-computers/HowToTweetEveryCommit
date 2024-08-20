@@ -2,4 +2,4 @@
 *.py[cod]
 *_autogen*
 post-commit
-.profiles.ini
+*.profiles.ini

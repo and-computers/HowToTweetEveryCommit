@@ -1,2 +1,9 @@
-tweepy>=3.0
-configparser
+certifi==2024.7.4
+charset-normalizer==2.0.12
+configparser==5.2.0
+idna==3.7
+oauthlib==3.2.2
+requests==2.27.1
+requests-oauthlib==1.4.1
+tweepy==4.6.0
+urllib3==1.26.19
